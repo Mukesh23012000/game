@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>FLAMES</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <style>
+            text{
+                font-family:Calibri;
+                font-size: 2.1rem;
+            }
+            body{
+                background-color:#fef9f8;
+                color:#0d0d0d;
+                font-family: 'Poppins', sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+            }
+            h1{
+                font-family: "Sofia";
+                text-align:center;
+                font-size:45px;
+                text-shadow: 2px 2px 8px #ef9273;
+            }
+            p{
+                font-size:23px;
+            }
+                $primary: #11998e;
+                $secondary: #38ef7d;
+                $white: #fff;
+                $gray: #9b9b9b;
+            .form__group {
+                position: relative;
+                padding: 15px 0 0;
+                margin-top: 10px;
+                width: 50%;
+            }
+
+            .form__field {
+                font-family: inherit;
+                width: 100%;
+                border: 0;
+                border-bottom: 2px solid $gray;
+                outline: 0;
+                font-size: 1.3rem;
+                color: $white;
+                padding: 7px 0;
+                background: transparent;
+                transition: border-color 0.2s;
+
+                &::placeholder {
+                    color: transparent;
+                }
+
+                &:placeholder-shown ~ .form__label {
+                    font-size: 1.3rem;
+                    cursor: text;
+                    top: 20px;
+                }
+            }
+
+            .form__label {
+                position: absolute;
+                top: 0;
+                display: block;
+                transition: 0.2s;
+                font-size: 1rem;
+                color: $gray;
+            }
+
+            .form__field:focus {
+                ~ .form__label {
+                    position: absolute;
+                    top: 0;
+                    display: block;
+                    transition: 0.2s;
+                    font-size: 1rem;
+                    color: $primary;
+                    font-weight:700;    
+            }
+            padding-bottom: 6px;  
+            font-weight: 700;
+            border-width: 3px;
+            border-image: linear-gradient(to right, $primary,$secondary);
+            border-image-slice: 1;
+            }
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+.button-5 {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #ef9273;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+  }
+  
+  .button-5:hover,
+  .button-5:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  }
+  
+  .button-5:hover {
+    transform: translateY(-1px);
+  }
+  
+  .button-5:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+  }
+        </style>
+    </head>
+    <body>
+        <h1>F😎L💕A🥰M👩‍❤️‍👨E😈S💞</h1>
+        <p>This flames calculator assesses and predicts the outcome of a relationship based on an algorithm of two given names. You can find more in depth information on this subject below the form.</p>
+        <p><b>Please enter the two names you are interested in!</b></p>
+        <form method='POST'>
+            {% csrf_token %}
+            <div class="form__group field">
+                <input autocomplete="off" type="text" class="form__field" placeholder="Your Name..." name="name1" id='name' required />
+            </div>
+            <br>
+            <div class="form__group field">
+                <input autocomplete="off" type="text" class="form__field" placeholder="Your Partner Name..." name="name2" id='name' required />
+            </div>
+            <br>
+            <button class="button-5" role="button">Calculate</button>
+        </form>
+        <br>
+        <text>{{text}}<b style="font-family:Sofia;">{{answer}}<b></text>
+    </body>
+</html>
